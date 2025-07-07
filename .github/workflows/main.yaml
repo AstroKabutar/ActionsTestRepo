@@ -1,5 +1,7 @@
 name: GCC Actions Test
 
+on: [push]
+
 jobs:
   build:
 
