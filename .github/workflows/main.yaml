@@ -1,13 +1,10 @@
 name: GCC Actions Test
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build-test:
-    if: github.repository == 'main'
+    if: github.ref == 'refs/heads/main'
 
     runs-on: ubuntu-24.04-arm
     steps:
@@ -36,7 +33,7 @@ jobs:
       shell: bash
 
   build-branchone:
-    if: github.repository == 'branchone'
+    if: github.ref == 'refs/heads/branchone'
 
     runs-on: ubuntu-24.04-arm
     steps:
