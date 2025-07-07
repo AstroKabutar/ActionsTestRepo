@@ -1,6 +1,12 @@
 name: GCC Actions Test
 
-on: [push]
+#on: [push]
+
+on:
+  push:
+    branches:
+      - main
+      - branchone
 
 jobs:
   debug-context:
