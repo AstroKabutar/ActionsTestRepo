@@ -1,12 +1,6 @@
 name: GCC Actions Test
 
-#on: [push]
-
-on:
-  push:
-    branches:
-      - main
-      - branchone
+on: push
 
 jobs:
   debug-context:
@@ -53,7 +47,7 @@ jobs:
 
     runs-on: ubuntu-24.04-arm
     steps:
-    -  uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
     - name: branch one build
       run: |
