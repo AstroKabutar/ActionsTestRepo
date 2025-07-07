@@ -3,5 +3,9 @@
 FROM debian:stable-slim
 
 WORKDIR /app
-COPY main.out /app/main.out
+COPY . /app
+
+RUN g++ -std=c++20 main.cpp -o main.out
+RUN rm main.cpp
+
 CMD ["bash", "./main.out"]

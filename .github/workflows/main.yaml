@@ -21,10 +21,10 @@ jobs:
 
     - name: Compile the cpp and build the image with finished product and push it into docker repo
       run: |
-           apt-get update
-           apt install -y g++
-           g++ -std=c++20 main.cpp -o main.out
-           ./main.out
+           #apt-get update
+           #apt install -y g++
+           #g++ -std=c++20 main.cpp -o main.out
+           #./main.out
            docker build -t schd1337/githubactions:latest .
            echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
            docker push schd1337/githubactions:latest
