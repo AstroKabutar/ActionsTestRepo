@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build-test:
 
-    runs-on: ubuntu-aarch64
+    runs-on: ubuntu-arm64
     steps:
     - uses: actions/checkout@v3
 
