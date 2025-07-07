@@ -1,4 +1,4 @@
-FROM arm64/debian:stable-slim
+FROM --platform=linux/arm64 debian:stable-slim
 
 WORKDIR /app
 COPY main.out /app/main.out
