@@ -35,8 +35,6 @@ jobs:
            docker push schd1337/githubactions:latest
       shell: bash
 
-
-jobs:
   build-branchone:
     if: github.repository == 'branchone'
 
