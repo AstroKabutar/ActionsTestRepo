@@ -1,6 +1,9 @@
 name: GCC Actions Test
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build-test:
@@ -29,4 +32,24 @@ jobs:
            docker build -t schd1337/githubactions:latest .
            echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
            docker push schd1337/githubactions:latest
+      shell: bash
+
+
+on:
+  push:
+    branches:
+      - branchone
+
+jobs:
+  build-branchone:
+
+    runs-on: ubuntu-24.04-arm
+    steps:
+    -  uses: actions/checkout@v3
+
+    - name: branch one build
+      run: |
+           echo "Hello World from branchone"
+           g++ -std=c++20 main.cpp -o main.out
+           ./main.out
       shell: bash
