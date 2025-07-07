@@ -3,6 +3,16 @@ name: GCC Actions Test
 on: [push]
 
 jobs:
+  debug-context:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print GitHub Context
+      run: |
+        echo "GitHub Ref: ${{ github.ref }}"
+        echo "GitHub Ref Name: ${{ github.ref_name }}"
+        echo "Repository: ${{ github.repository }}"
+
+#jobs:
   build-test:
     if: github.ref == 'refs/heads/main'
 
