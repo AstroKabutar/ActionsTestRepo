@@ -35,21 +35,3 @@ jobs:
       shell: bash
 
 
-on:
-  push:
-    branches:
-      - branchone
-
-jobs:
-  build-branchone:
-
-    runs-on: ubuntu-24.04-arm
-    steps:
-    -  uses: actions/checkout@v3
-
-    - name: branch one build
-      run: |
-           echo "Hello World from branchone"
-           g++ -std=c++20 main.cpp -o main.out
-           ./main.out
-      shell: bash
