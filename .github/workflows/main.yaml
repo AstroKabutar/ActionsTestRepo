@@ -44,16 +44,18 @@ jobs:
   ssh-ec2:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
     - name: SSH into server and echo hello world
       run: |
+            echo ${{ secrets.EC2_KEY }} | tee $PWD/ec2.pem
+            chmod 600 $PWD/ec2.pem
             ls -l
             pwd
             uname -a
             hostname
-            ssh -i "project-solo.pem" admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com pwd
-            ssh -i "project-solo.pem" admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com hostname
-            ssh -i "project-solo.pem" admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com uname -a
-            ssh -i "project-solo.pem" admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com "echo $HOSTNAME | tee $HOME/sshdone.txt"
+            ssh -i "ec2.pem" admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com << EOF
+            pwd
+            hostname
+            uname -a
+            echo $HOSTNAME | tee $HOME/sshdone.txt
             EOF
       shell: bash
