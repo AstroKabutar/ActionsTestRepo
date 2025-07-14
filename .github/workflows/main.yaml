@@ -46,8 +46,6 @@ jobs:
     steps:
     - name: SSH into server and echo hello world
       run: |
-            #echo "${{ secrets.EC2_KEY }}" | tee $PWD/ec2.pem
-            #chmod 600 $PWD/ec2.pem
             ls -l
             pwd
             uname -a
