@@ -49,7 +49,9 @@ jobs:
             echo "${{ secrets.EC2_KEY }}" | tee $PWD/ec2.pem
             ls -l
             pwd
-            ssh -tt -i ec2.pem admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com << EOF
+            uname -a
+            hostname
+            ssh -tt -i "ec2.pem" admin@ec2-13-126-108-250.ap-south-1.compute.amazonaws.com << EOF
             pwd
             hostname
             uname -a
