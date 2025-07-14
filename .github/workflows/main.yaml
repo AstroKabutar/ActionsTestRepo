@@ -3,14 +3,14 @@ name: GCC Actions Test
 on: push
 
 jobs:
-  debug-context:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print GitHub Context
-      run: |
-        echo "GitHub Ref: ${{ github.ref }}"
-        echo "GitHub Ref Name: ${{ github.ref_name }}"
-        echo "Repository: ${{ github.repository }}"
+#  debug-context:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Print GitHub Context
+#      run: |
+#        echo "GitHub Ref: ${{ github.ref }}"
+#        echo "GitHub Ref Name: ${{ github.ref_name }}"
+#        echo "Repository: ${{ github.repository }}"
 
 #  build-test:
 #    if: github.ref == 'refs/heads/main'
@@ -46,7 +46,7 @@ jobs:
     steps:
     - name: SSH into server and echo hello world
       run: |
-            echo ${{ secrets.EC2_KEY }} | tee $PWD/ec2.pem
+            echo "${{ secrets.EC2_KEY }}" | tee $PWD/ec2.pem
             chmod 600 $PWD/ec2.pem
             ls -l
             pwd
@@ -57,5 +57,6 @@ jobs:
             hostname
             uname -a
             echo $HOSTNAME | tee $HOME/sshdone.txt
+            ls -l
             EOF
       shell: bash
